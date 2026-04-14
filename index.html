@@ -1,0 +1,2015 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>刘郁婷 · 个人简历</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    /* ===== CSS 变量 & 全局重置 ===== */
+    :root {
+      --bg: #f7f6f3;
+      --surface: #ffffff;
+      --text-primary: #1a1a1a;
+      --text-secondary: #5a5a5a;
+      --text-muted: #999;
+      --accent: #4a90a4;
+      --accent-warm: #e07b54;
+      --accent-light: #eaf4f7;
+      --border: #e8e4df;
+      --shadow: 0 4px 24px rgba(0,0,0,0.07);
+      --shadow-hover: 0 8px 32px rgba(0,0,0,0.12);
+      --radius: 16px;
+      --radius-sm: 8px;
+      --nav-h: 64px;
+      --transition: 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+      background: var(--bg);
+      color: var(--text-primary);
+      min-height: 100vh;
+      line-height: 1.7;
+      font-size: 15px;
+    }
+
+    /* ===== 顶部导航 ===== */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-h);
+      background: rgba(247,246,243,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 32px;
+    }
+
+    .nav-logo {
+      font-family: 'DM Serif Display', 'Noto Serif SC', serif;
+      font-size: 18px;
+      color: var(--text-primary);
+      letter-spacing: 0.02em;
+    }
+
+    .nav-logo span { color: var(--accent); }
+
+    .nav-links {
+      display: flex;
+      gap: 4px;
+      list-style: none;
+    }
+
+    .nav-links li a {
+      display: block;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 13.5px;
+      font-weight: 400;
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: var(--transition);
+      cursor: pointer;
+      border: 1px solid transparent;
+    }
+
+    .nav-links li a:hover {
+      color: var(--accent);
+      background: var(--accent-light);
+    }
+
+    .nav-links li a.active {
+      color: var(--accent);
+      background: var(--accent-light);
+      border-color: rgba(74,144,164,0.25);
+      font-weight: 500;
+    }
+
+    /* 移动端汉堡菜单 */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .hamburger span {
+      display: block;
+      width: 22px; height: 2px;
+      background: var(--text-primary);
+      border-radius: 2px;
+      transition: var(--transition);
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* 移动端导航展开 */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: var(--nav-h);
+      left: 0; right: 0;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 24px 20px;
+      z-index: 99;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .mobile-menu.show { display: flex; }
+    .mobile-menu a {
+      padding: 10px 12px;
+      border-radius: var(--radius-sm);
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 14px;
+      transition: var(--transition);
+    }
+    .mobile-menu a:hover,
+    .mobile-menu a.active {
+      color: var(--accent);
+      background: var(--accent-light);
+    }
+
+    /* ===== 主内容区 ===== */
+    main { margin-top: var(--nav-h); min-height: calc(100vh - var(--nav-h)); }
+
+    .section {
+      display: none;
+      animation: fadeUp 0.4s ease both;
+    }
+    .section.active { display: block; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ===== 容器 ===== */
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+
+    /* ===== 区块标题 ===== */
+    .section-header { margin-bottom: 36px; }
+    .section-header h2 {
+      font-family: 'DM Serif Display', 'Noto Serif SC', serif;
+      font-size: 32px;
+      font-weight: 400;
+      color: var(--text-primary);
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+    .section-header h2 em { font-style: italic; color: var(--accent); }
+    .section-header .subtitle {
+      margin-top: 8px;
+      color: var(--text-muted);
+      font-size: 13.5px;
+      letter-spacing: 0.05em;
+    }
+    .divider {
+      width: 40px; height: 3px;
+      background: var(--accent);
+      border-radius: 2px;
+      margin-top: 12px;
+    }
+
+    /* ===== 卡片 ===== */
+    .card {
+      background: var(--surface);
+      border-radius: var(--radius);
+      padding: 28px 32px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      transition: box-shadow var(--transition), transform var(--transition);
+    }
+    .card:hover { box-shadow: var(--shadow-hover); transform: translateY(-2px); }
+
+    /* ===== 首页 / 个人简介 ===== */
+    .hero {
+      padding: 56px 24px 80px;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .hero-text .greeting {
+      font-size: 13px;
+      letter-spacing: 0.15em;
+      color: var(--accent);
+      text-transform: uppercase;
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+
+    .hero-text h1 {
+      font-family: 'DM Serif Display', 'Noto Serif SC', serif;
+      font-size: clamp(40px, 6vw, 62px);
+      font-weight: 400;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+
+    .hero-text .role-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--accent-light);
+      border: 1px solid rgba(74,144,164,0.25);
+      color: var(--accent);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 500;
+      margin: 16px 0 20px;
+    }
+    .role-badge::before {
+      content: '';
+      display: inline-block;
+      width: 6px; height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+    }
+
+    .hero-text .tagline {
+      font-size: 15.5px;
+      color: var(--text-secondary);
+      max-width: 480px;
+      line-height: 1.8;
+      margin-bottom: 28px;
+    }
+
+    .hero-contact { display: flex; flex-wrap: wrap; gap: 10px; }
+
+    .contact-pill {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 14px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      font-size: 12.5px;
+      color: var(--text-secondary);
+      transition: var(--transition);
+    }
+    .contact-pill:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: var(--accent-light);
+    }
+    .contact-pill .icon { width: 14px; height: 14px; flex-shrink: 0; }
+
+    /* ===== 头像 ===== */
+    .avatar-wrap { flex-shrink: 0; }
+
+    .avatar-container {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 3px solid var(--border);
+      box-shadow: var(--shadow);
+      position: relative;
+      background: linear-gradient(135deg, var(--accent-light) 0%, #f0ebe3 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .avatar-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+      display: block;
+    }
+
+    /* 头像占位（无照片时显示） */
+    .avatar-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      color: var(--accent);
+    }
+    .avatar-placeholder svg { width: 52px; height: 52px; opacity: 0.7; }
+    .avatar-placeholder span {
+      font-size: 12px;
+      color: var(--text-muted);
+      font-family: 'DM Serif Display', serif;
+      font-style: italic;
+    }
+
+    /* 个人信息卡片行 */
+    .info-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 32px;
+    }
+
+    .info-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px 22px;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+    }
+    .info-card:hover { box-shadow: var(--shadow-hover); transform: translateY(-2px); }
+    .info-card .info-label {
+      font-size: 11.5px;
+      color: var(--text-muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .info-card .info-value { font-size: 15px; font-weight: 500; color: var(--text-primary); }
+    .info-card .info-icon { font-size: 20px; margin-bottom: 8px; }
+
+    /* ===== 教育背景 ===== */
+    .edu-timeline { display: flex; flex-direction: column; gap: 20px; }
+
+    .edu-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 32px;
+      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 16px;
+      align-items: start;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    .edu-card::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 4px;
+      background: var(--accent);
+      border-radius: 4px 0 0 4px;
+    }
+    .edu-card:nth-child(2)::before { background: var(--accent-warm); }
+    .edu-card:hover { box-shadow: var(--shadow-hover); transform: translateY(-2px); }
+
+    .edu-card .school {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+    }
+    .edu-card .major { font-size: 14px; color: var(--accent); font-weight: 500; margin-bottom: 10px; }
+    .edu-card .degree-tag {
+      display: inline-block;
+      background: var(--accent-light);
+      color: var(--accent);
+      padding: 3px 10px;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: 500;
+      margin-bottom: 14px;
+    }
+    .edu-card .edu-period {
+      font-size: 12.5px;
+      color: var(--text-muted);
+      white-space: nowrap;
+      margin-top: 4px;
+    }
+    .edu-card .edu-detail {
+      font-size: 13.5px;
+      color: var(--text-secondary);
+      line-height: 1.9;
+    }
+    .edu-card .edu-detail li {
+      padding-left: 4px;
+      margin-bottom: 4px;
+      list-style: none;
+    }
+    .edu-card .edu-detail li::before {
+      content: '·';
+      color: var(--accent);
+      font-weight: bold;
+      margin-right: 6px;
+    }
+    .edu-gpa {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: #fff8f4;
+      border: 1px solid rgba(224,123,84,0.25);
+      color: var(--accent-warm);
+      padding: 4px 12px;
+      border-radius: 12px;
+      font-size: 12.5px;
+      font-weight: 600;
+      margin-top: 8px;
+    }
+
+    .course-grid { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+    .course-tag {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      padding: 4px 12px;
+      border-radius: 12px;
+      font-size: 12px;
+      color: var(--text-secondary);
+    }
+    .course-tag strong { color: var(--accent); }
+
+    /* ===== 项目 / 实习经历 ===== */
+    .exp-list { display: flex; flex-direction: column; gap: 20px; }
+
+    .exp-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 32px;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    .exp-card:hover { box-shadow: var(--shadow-hover); transform: translateY(-2px); }
+    .exp-card::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-warm));
+      opacity: 0;
+      transition: var(--transition);
+    }
+    .exp-card:hover::after { opacity: 1; }
+
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 6px;
+    }
+    .exp-title {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--text-primary);
+      line-height: 1.4;
+    }
+    .exp-period {
+      font-size: 12px;
+      color: var(--text-muted);
+      white-space: nowrap;
+      margin-top: 3px;
+      flex-shrink: 0;
+    }
+    .exp-subtitle { font-size: 13px; color: var(--accent); font-weight: 500; margin-bottom: 14px; }
+    .exp-badge {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 12px;
+      font-size: 11.5px;
+      font-weight: 600;
+      margin-left: 8px;
+      vertical-align: middle;
+    }
+    .badge-gold  { background: #fff8e6; color: #c4820a; border: 1px solid rgba(196,130,10,0.2); }
+    .badge-blue  { background: var(--accent-light); color: var(--accent); border: 1px solid rgba(74,144,164,0.2); }
+    .badge-orange{ background: #fff4f0; color: var(--accent-warm); border: 1px solid rgba(224,123,84,0.2); }
+
+    .exp-points { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .exp-points li {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.8;
+      padding-left: 16px;
+      position: relative;
+    }
+    .exp-points li::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 11px;
+      width: 5px; height: 5px;
+      background: var(--accent);
+      border-radius: 50%;
+    }
+
+    /* 项目内嵌附件区 */
+    .exp-attachment {
+      margin-top: 18px;
+      padding-top: 16px;
+      border-top: 1px dashed var(--border);
+    }
+    .exp-attachment-label {
+      font-size: 12px;
+      color: var(--text-muted);
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .exp-attachment-btns { display: flex; flex-wrap: wrap; gap: 8px; }
+
+    /* ===== 技能特长 ===== */
+    .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+
+    .skill-group {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px 26px;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+    }
+    .skill-group:hover { box-shadow: var(--shadow-hover); transform: translateY(-2px); }
+    .skill-group-title {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .skill-group-title .dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .skill-tag {
+      padding: 5px 13px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      font-size: 13px;
+      color: var(--text-secondary);
+      transition: var(--transition);
+    }
+    .skill-tag:hover {
+      background: var(--accent-light);
+      border-color: rgba(74,144,164,0.3);
+      color: var(--accent);
+    }
+    .skill-tag.highlight {
+      background: var(--accent-light);
+      border-color: rgba(74,144,164,0.3);
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    .other-skills {
+      margin-top: 20px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px 26px;
+      box-shadow: var(--shadow);
+    }
+    .talent-list { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
+    .talent-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 14px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      font-size: 13px;
+      color: var(--text-secondary);
+      transition: var(--transition);
+    }
+    .talent-item:hover {
+      background: #fff8f4;
+      border-color: rgba(224,123,84,0.3);
+      color: var(--accent-warm);
+    }
+    .talent-item .emoji { font-size: 15px; }
+
+    /* ===== 荣誉证书 ===== */
+    .honor-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+    .honor-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px 24px;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .honor-card:hover { box-shadow: var(--shadow-hover); transform: translateY(-2px); }
+    .honor-card .honor-icon { font-size: 24px; margin-bottom: 4px; }
+    .honor-card .honor-title { font-size: 14.5px; font-weight: 600; color: var(--text-primary); line-height: 1.4; }
+    .honor-card .honor-desc { font-size: 12.5px; color: var(--text-secondary); line-height: 1.7; }
+    .honor-card .honor-level {
+      display: inline-block;
+      padding: 2px 9px;
+      border-radius: 10px;
+      font-size: 11.5px;
+      font-weight: 600;
+      width: fit-content;
+    }
+
+    .cert-list { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 6px; }
+    .cert-pill {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      font-size: 13px;
+      color: var(--text-secondary);
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+    }
+    .cert-pill:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: var(--accent-light);
+    }
+
+    /* ===== 作品集 ===== */
+    .portfolio-grid { display: flex; flex-direction: column; gap: 20px; }
+
+    .portfolio-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 32px;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    .portfolio-card:hover { box-shadow: var(--shadow-hover); transform: translateY(-2px); }
+    .portfolio-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      opacity: 0;
+      transition: var(--transition);
+    }
+    .portfolio-card:hover::before { opacity: 1; }
+    .portfolio-card:nth-child(1)::before { background: linear-gradient(90deg, var(--accent), #7bb88c); }
+    .portfolio-card:nth-child(2)::before { background: linear-gradient(90deg, #7bb88c, #a07bb8); }
+    .portfolio-card:nth-child(3)::before { background: linear-gradient(90deg, #a07bb8, var(--accent-warm)); }
+    .portfolio-card:nth-child(4)::before { background: linear-gradient(90deg, var(--accent-warm), #c4820a); }
+
+    .portfolio-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+    .portfolio-title {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--text-primary);
+      line-height: 1.4;
+    }
+    .portfolio-type {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 3px 10px;
+      border-radius: 12px;
+      font-size: 11.5px;
+      font-weight: 600;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .type-pdf    { background: #fff0f0; color: #c44; border: 1px solid rgba(200,60,60,0.2); }
+    .type-ppt    { background: #fff8e6; color: #c4820a; border: 1px solid rgba(196,130,10,0.2); }
+    .type-video  { background: #f0f0ff; color: #6a5acd; border: 1px solid rgba(106,90,205,0.2); }
+    .type-link   { background: var(--accent-light); color: var(--accent); border: 1px solid rgba(74,144,164,0.2); }
+
+    .portfolio-desc {
+      font-size: 13.5px;
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+
+    /* 作品链接按钮组 */
+    .portfolio-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+
+    .action-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 16px;
+      border-radius: 20px;
+      font-size: 12.5px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: var(--transition);
+      cursor: pointer;
+      border: 1px solid;
+    }
+    .action-btn-primary {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+    .action-btn-primary:hover {
+      background: #3a7a90;
+      border-color: #3a7a90;
+      box-shadow: 0 4px 12px rgba(74,144,164,0.3);
+    }
+    .action-btn-secondary {
+      background: var(--surface);
+      color: var(--text-secondary);
+      border-color: var(--border);
+    }
+    .action-btn-secondary:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: var(--accent-light);
+    }
+    .action-btn-pdf {
+      background: #fff0f0;
+      color: #c44;
+      border-color: rgba(200,60,60,0.2);
+    }
+    .action-btn-pdf:hover {
+      background: #ffe0e0;
+      border-color: rgba(200,60,60,0.4);
+    }
+    .action-btn-ppt {
+      background: #fff8e6;
+      color: #c4820a;
+      border-color: rgba(196,130,10,0.2);
+    }
+    .action-btn-ppt:hover {
+      background: #fff3cc;
+      border-color: rgba(196,130,10,0.4);
+    }
+    .action-btn-video {
+      background: #f0f0ff;
+      color: #6a5acd;
+      border-color: rgba(106,90,205,0.2);
+    }
+    .action-btn-video:hover {
+      background: #e8e8ff;
+      border-color: rgba(106,90,205,0.4);
+    }
+    .action-btn-link {
+      background: var(--accent-light);
+      color: var(--accent);
+      border-color: rgba(74,144,164,0.2);
+    }
+    .action-btn-link:hover {
+      background: #d8eef5;
+      border-color: rgba(74,144,164,0.4);
+    }
+
+    /* 项目内嵌上传区 */
+    .exp-attachment {
+      margin-top: 18px;
+      padding-top: 16px;
+      border-top: 1px dashed var(--border);
+    }
+    .exp-attachment-label {
+      font-size: 12px;
+      color: var(--text-muted);
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .exp-attachment-btns { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+
+    /* 文件上传按钮（内嵌附件上传位） */
+    .upload-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--text-muted);
+      background: var(--bg);
+      border: 1px dashed var(--border);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .upload-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: var(--accent-light);
+    }
+    .upload-btn input[type="file"] { display: none; }
+
+    /* 已上传文件显示 */
+    .uploaded-file {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 500;
+      background: var(--accent-light);
+      color: var(--accent);
+      border: 1px solid rgba(74,144,164,0.25);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+    .uploaded-file:hover { background: #d8eef5; }
+    .uploaded-file .remove-file {
+      cursor: pointer;
+      opacity: 0.6;
+      transition: opacity 0.2s;
+      font-size: 14px;
+      line-height: 1;
+    }
+    .uploaded-file .remove-file:hover { opacity: 1; }
+
+    /* ===== 证书链接卡 ===== */
+    .cert-links-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+
+    .cert-link-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px 22px;
+      box-shadow: var(--shadow);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+    .cert-link-card:hover {
+      box-shadow: var(--shadow-hover);
+      transform: translateY(-2px);
+      border-color: var(--accent);
+    }
+    .cert-link-icon { font-size: 22px; flex-shrink: 0; }
+    .cert-link-text { font-size: 13px; color: var(--text-secondary); line-height: 1.5; }
+    .cert-link-text strong { display: block; color: var(--text-primary); font-size: 13.5px; }
+
+    /* ===== Footer ===== */
+    footer {
+      text-align: center;
+      padding: 24px;
+      color: var(--text-muted);
+      font-size: 12px;
+      border-top: 1px solid var(--border);
+    }
+
+    /* ===== 响应式 ===== */
+    @media (max-width: 720px) {
+      nav { padding: 0 20px; }
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+
+      .hero { padding: 32px 20px 48px; }
+      .hero-inner { grid-template-columns: 1fr; gap: 28px; }
+      .avatar-wrap { order: -1; }
+      .avatar-container { width: 110px; height: 110px; margin: 0 auto; }
+      .hero-text h1 { font-size: 36px; }
+      .info-row { grid-template-columns: repeat(2, 1fr); }
+
+      .container { padding: 32px 20px 64px; }
+
+      .edu-card { grid-template-columns: 1fr; gap: 8px; }
+      .edu-period { order: -1; margin-bottom: 4px; }
+
+      .skills-grid { grid-template-columns: 1fr; }
+      .honor-grid { grid-template-columns: 1fr; }
+      .cert-links-grid { grid-template-columns: 1fr; }
+      .portfolio-actions { flex-direction: column; }
+      .action-btn { width: 100%; justify-content: center; }
+    }
+
+    @media (max-width: 480px) {
+      .info-row { grid-template-columns: 1fr 1fr; }
+      .section-header h2 { font-size: 26px; }
+    }
+
+    /* 滚动条美化 */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+    /* ===== 全局上传区样式（项目内嵌）====== */
+    .exp-attachment {
+      margin-top: 18px;
+      padding-top: 16px;
+      border-top: 1px dashed var(--border);
+    }
+    .exp-attachment-label {
+      font-size: 12px;
+      color: var(--text-muted);
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .exp-attachment-btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+    .upload-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--text-muted);
+      background: var(--bg);
+      border: 1px dashed var(--border);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .upload-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: var(--accent-light);
+    }
+    .upload-btn input[type="file"] { display: none; }
+    .uploaded-file {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 500;
+      background: var(--accent-light);
+      color: var(--accent);
+      border: 1px solid rgba(74,144,164,0.25);
+      text-decoration: none;
+      transition: var(--transition);
+      max-width: 200px;
+      overflow: hidden;
+    }
+    .uploaded-file:hover { background: #d8eef5; }
+    .uploaded-file .remove-file {
+      cursor: pointer;
+      opacity: 0.6;
+      transition: opacity 0.2s;
+      font-size: 14px;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+    .uploaded-file .remove-file:hover { opacity: 1; }
+    .uploaded-file .file-name {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== 导航栏 ===== -->
+  <nav>
+    <div class="nav-logo">刘郁婷 <span>·</span> LYT</div>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#" data-target="home">首页</a></li>
+      <li><a href="#" data-target="education">教育背景</a></li>
+      <li><a href="#" data-target="competition">项目/竞赛</a></li>
+      <li><a href="#" data-target="practice">实习/实践</a></li>
+      <li><a href="#" data-target="skills">技能特长</a></li>
+      <li><a href="#" data-target="honors">荣誉证书</a></li>
+      <li><a href="#" data-target="portfolio">作品集</a></li>
+    </ul>
+
+    <!-- 移动端汉堡按钮 -->
+    <div class="hamburger" id="hamburger" aria-label="菜单">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- 移动端展开菜单 -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#" data-target="home">首页</a>
+    <a href="#" data-target="education">教育背景</a>
+    <a href="#" data-target="competition">项目/竞赛</a>
+    <a href="#" data-target="practice">实习/实践</a>
+    <a href="#" data-target="skills">技能特长</a>
+    <a href="#" data-target="honors">荣誉证书</a>
+    <a href="#" data-target="portfolio">作品集</a>
+  </div>
+
+  <main>
+
+    <!-- ==================== 首页 ==================== -->
+    <section id="home" class="section active">
+      <div class="hero">
+        <div class="hero-inner">
+          <!-- 文字区 -->
+          <div class="hero-text">
+            <p class="greeting">Personal Resume · 个人简历</p>
+            <h1>刘郁婷</h1>
+            <div class="role-badge">热爱挑战新鲜事物 坚持综合全面发展</div>
+            <p class="tagline">
+              统计学背景 × 数据分析实战 × 擅长英语<br>
+              用数据驱动洞察，以产品思维解决问题。<br>
+              具备极强的责任担当意识，拥有良好的道德品质。
+            </p>
+            <div class="hero-contact">
+              <div class="contact-pill">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.1a19.79 19.79 0 01-3.07-8.68A2 2 0 012 .22h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+                </svg>
+                18801136074
+              </div>
+              <div class="contact-pill">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="2" y="4" width="20" height="16" rx="2"/>
+                  <path d="M2 7l10 7 10-7"/>
+                </svg>
+                liutinger0409@163.com
+              </div>
+              <div class="contact-pill">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
+                </svg>
+                微信：LYTRRRRRRRR
+              </div>
+            </div>
+          </div>
+
+	
+	<!-- 头像区 -->
+	<div class="avatar-wrap">
+ 	 <div class="avatar-container">
+
+	    <img src="images/photo.jpg"
+    	     alt="刘郁婷"
+    	     class="avatar-img">
+
+ 	 </div>
+	</div>
+
+        <!-- 个人信息卡片 -->
+        <div class="info-row">
+          <div class="info-card">
+            <div class="info-icon">🎓</div>
+            <div class="info-label">学历</div>
+            <div class="info-value">在读硕士研究生</div>
+          </div>
+          <div class="info-card">
+            <div class="info-icon">🎂</div>
+            <div class="info-label">年龄</div>
+            <div class="info-value">24 岁</div>
+          </div>
+          <div class="info-card">
+            <div class="info-icon">📍</div>
+            <div class="info-label">实习时间</div>
+            <div class="info-value">可实习6个月以上</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+   <!-- ==================== 教育背景 ==================== -->
+    <section id="education" class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>教育背景</h2>
+          <div class="divider"></div>
+          <p class="subtitle">EDUCATION · 扎实的学术功底</p>
+        </div>
+
+        <div class="edu-timeline">
+          <!-- 北邮 硕士 -->
+          <div class="edu-card">
+            <div>
+              <div class="school">北京邮电大学</div>
+              <div class="major">概率与统计系</div>
+              <span class="degree-tag">硕士在读（推免）</span>
+              <div class="edu-gpa"> 🏆一等奖学金</div>
+              </ul>
+              <div class="course-grid">
+                <span class="course-tag">强化学习及其应用 <strong>97</strong></span>
+                <span class="course-tag">随机过程论 <strong>99</strong></span>
+                <span class="course-tag">组合数学：算法与分析 <strong>95</strong></span>
+                <span class="course-tag">概率论与随机过程 <strong>93</strong></span>
+              </div>
+              <ul class="edu-detail" style="margin-top: 12px;">
+                <li><strong>自学经历：</strong>RL强化学习底层理论《Introduction to Stochastic Dynamic Programming》</li>
+		  <li><strong>校园经历：</strong>党支部书记</li>
+            </div>
+            <div class="edu-period">2024.09 — 至今</div>
+          </div>
+
+          <!-- 燕大 本科 -->
+          <div class="edu-card">
+            <div>
+              <div class="school">燕山大学</div>
+              <div class="major">统计学</div>
+              <span class="degree-tag">学士</span>
+              <div class="edu-gpa">🏆 综合绩点 3.986｜排名 1 / 66</div>
+              <ul class="edu-detail" style="margin-top: 12px;">
+                <li><strong>核心课程：</strong>多元统计分析、统计分析软件(SAS)、统计学原理、实验设计、 计量经济学、抽样调查、非参数统计、时间序列分析、寿险精算理论、随机过程、数理统计、概率论、常微分方程、运筹学、数学分析等</li>
+                <li><strong>毕业论文：</strong>《碳中和目标下河北省碳排放影响因素分析》构建多元回归模型、PSO-BP 神经网络等</li>
+		  <li><strong>校园经历：</strong> 班级团支书(四年)、大学生艺术团舞蹈团团长</li>
+              </ul>
+            </div>
+            <div class="edu-period">2020.09 — 2024.06</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 竞赛/项目经历 ==================== -->
+    <section id="competition" class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>项目与竞赛经历</h2>
+          <div class="divider"></div>
+          <p class="subtitle">COMPETITION · 竞赛 / PROJECT · 以赛促学，以研促践</p>
+        </div>
+
+        <div class="exp-list">
+
+          <!-- 正大杯 -->
+          <div class="exp-card">
+            <div class="exp-header">
+              <div>
+                <div class="exp-title">
+                  学苑造物——北京市高校文创产品发展现状与消费行为解码
+                  <span class="exp-badge badge-gold">全国一等奖</span>
+                </div>
+                <div class="exp-subtitle">第十五届全国大学生市场调查与分析大赛——团队负责人</div>
+              </div>
+              <div class="exp-period">2025.03 — 2025.05</div>
+            </div>
+            <div class="course-grid">
+                <span class="course-tag">问卷调查</span>
+                <span class="course-tag">抽样调查</span>
+                <span class="course-tag">TwoStep聚类</span>
+                <span class="course-tag">XGBoost</span>
+                <span class="course-tag">SEM模型</span>
+                <span class="course-tag">PRD 撰写</span>
+                <span class="course-tag">视觉设计</span>
+              </div>
+            <ul class="exp-points" style="margin-top: 10px;">
+              <li><strong>调研设计：</strong>主导“数据发现-实地验证-问卷量化”全流程；组织微博爬虫采集评论；完成6校站店式实地走访与9校网店数据挖掘；设计配额+滚雪球抽样，回收问卷1004份，达到有效率98.7%；设计7种数据分析方案。</li>
+              <li><strong>竞品调研：</strong>对比9校线上店铺的品类、价格、销量、配送机制，发现存在基础款定价相似、特色款溢价等问题。</li>
+              <li><strong>数据分析：</strong>运用TwoStep聚类划分用户画像，区分现有消费者与潜在消费者；通过XGBoost划分5类购买导向并提取特征权重；基于结构方程SEM模型探究8个因素对消费意愿的影响路径，从中提炼产品优化方向。</li>
+              <li><strong>模拟 PRD 撰写：</strong>总结47%消费者反馈“价格高”、41%反馈“缺乏实用性”等问题，将用户痛点转化为产品改进需求；提出“特色IP融入基础款+百元内定价+线上渠道强化+赠送式体验营销”四维策略，直接回应核心问题。</li>
+              <li><strong>视觉设计与答辩筹备：</strong>独立完成封面及PPT视觉设计；系统梳理35+道高频问题回答稿，组织团队模拟答辩。</li>
+            </ul>
+            <!-- 项目内嵌附件上传位 -->
+            <div class="exp-attachment">
+              <div class="exp-attachment-label">📎 附件上传</div>
+              <div class="exp-attachment-btns">
+                <label class="upload-btn" id="upload-zhengdabei">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M17 8l-5-5-5 5M12 3v12"/>
+                  </svg>
+                  上传作品
+                  <input type="file" accept=".pdf,.ppt,.pptx,.doc,.docx,.jpg,.jpeg,.png,.mp4,.mov" onchange="handleFileUpload(this, 'zhengdabei')" />
+                </label>
+                <!-- 外部链接入口 -->
+                <a href="https://365.kdocs.cn/l/cfllVIpURdGG" target="_blank" class="action-btn action-btn-pdf">
+                  📄 PDF 报告
+                </a>
+                <a href="https://365.kdocs.cn/l/cerJnZEJzsf2" target="_blank" class="action-btn action-btn-ppt">
+                  📊 PPT 展示
+                </a>
+              </div>
+              <div id="file-list-zhengdabei" style="margin-top:8px;"></div>
+            </div>
+          </div>
+
+          <!-- 计算机设计大赛 -->
+          <div class="exp-card">
+            <div class="exp-header">
+              <div>
+                <div class="exp-title">
+                  探典·寻目——中医药传统文化
+                  <span class="exp-badge badge-gold">全国二等奖</span>
+                </div>
+                <div class="exp-subtitle">第十六届中国大学生计算机设计大赛——团队负责人</div>
+              </div>
+              <div class="exp-period">2023.03 — 2023.05</div>
+            </div>
+            <div class="course-grid">
+                <span class="course-tag">Procreate逐帧绘画</span>
+                <span class="course-tag">Pr/剪映剪辑</span>
+              </div>
+            <ul class="exp-points" style="margin-top: 10px;">
+               <li><strong>剧情设计：</strong>参考《国家宝藏》等10余份文献，主导剧本创作，累计修改6版剧本，确保故事完整性与感染力。</li>
+              <li><strong>竞品调研：</strong>使用Procreate逐帧绘制300余帧素材，完成全片80%以上画面；运用剪映剪辑，作品时长3分42秒。</li>
+            </ul>
+            <div class="exp-attachment">
+              <div class="exp-attachment-label">📎 附件上传</div>
+              <div class="exp-attachment-btns">
+                <label class="upload-btn" id="upload-jisuanji">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M17 8l-5-5-5 5M12 3v12"/>
+                  </svg>
+                  上传作品
+                  <input type="file" accept=".pdf,.ppt,.pptx,.doc,.docx,.jpg,.jpeg,.png,.mp4,.mov" onchange="handleFileUpload(this, 'jisuanji')" />
+                </label>
+                <a href="https://www.bilibili.com/video/BV1J4QiBwE8b/?spm_id_from=333.1387.homepage.video_card.click" target="_blank" class="action-btn action-btn-video">
+                  🎬 观看视频
+                </a>
+              </div>
+              <div id="file-list-jisuanji" style="margin-top:8px;"></div>
+            </div>
+          </div>
+
+        <!-- 统计建模大赛 -->
+          <div class="exp-card">
+            <div class="exp-header">
+              <div>
+                <div class="exp-title">
+                  基于改进1DCNN模型的二氧化碳排放量的统计监测
+                  <span class="exp-badge badge-orange">全国三等奖</span>
+                </div>
+                <div class="exp-subtitle">第九届全国大学生统计建模大赛——团队负责人</div>
+              </div>
+              <div class="exp-period">2023.04 — 2023.06</div>
+            </div>
+            <div class="course-grid">
+                <span class="course-tag">Python线性拟合</span>
+                <span class="course-tag">神经网络</span>
+                <span class="course-tag">深度学习</span>
+              </div>
+            <ul class="exp-points"style="margin-top: 10px;">
+              <li><strong>数据统筹与指标构建：</strong>收集32年的面板数据，构建涵盖经济发展、人口规模等4大类17项指标的数据集。完成数据清洗与 20 组线性拟合分析，验证各指标与碳排放的强相关性，为模型输入奠定基础。</li>
+              <li><strong>模型设计与对比实验：</strong>对比6种神经网络模型（LSTM、ResNet、CNN等），创新改进1DCNN网络架构，最终模型RMSE=55.290、MAE=36.730，监测精度较CNN提升40.5%和46.1%，较LSTM提升近800%。</li>
+              <li><strong>成果提炼与建议输出：</strong>基于多维因素综合考量的建模思路，提出“考量经济、人口、消费等综合指标”“加强日度/月度数据实时记录”等4条可操作建议。该方法成本低、精度高、可推广，为碳排放监测提供了新路径。</li>
+            </ul>
+            <div class="exp-attachment">
+              <div class="exp-attachment-label">📎 附件上传</div>
+              <div class="exp-attachment-btns">
+                <label class="upload-btn" id="upload-tongjijianmo">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M17 8l-5-5-5 5M12 3v12"/>
+                  </svg>
+                  上传作品
+                  <input type="file" accept=".pdf,.ppt,.pptx,.doc,.docx,.jpg,.jpeg,.png,.mp4,.mov" onchange="handleFileUpload(this, 'tongjijianmo')" />
+                </label>
+                <a href="https://365.kdocs.cn/l/creGtmLzKTNj" target="_blank" class="action-btn action-btn-pdf">
+                  📄 PDF 报告
+                </a>
+                <a href="https://365.kdocs.cn/l/cvDPBFSWiyIv" target="_blank" class="action-btn action-btn-ppt">
+                📊 PPT 展示
+              </a>
+              </div>
+              <div id="file-list-tongjijianmo" style="margin-top:8px;"></div>
+            </div>
+          </div>
+
+          <!-- 国创项目 -->
+          <div class="exp-card">
+            <div class="exp-header">
+              <div>
+                <div class="exp-title">
+                  Z 世代大学生社交媒体潮流爱好信息采纳行为影响因素研究
+                  <span class="exp-badge badge-gold">国家级创新训练项目</span>
+                </div>
+                <div class="exp-subtitle">项目负责人</div>
+              </div>
+              <div class="exp-period">2022.06 — 2023.06</div>
+            </div>
+            <div class="course-grid">
+                <span class="course-tag">深度访谈</span>
+                <span class="course-tag">信息采纳</span>
+                <span class="course-tag">SEM模型</span>
+                <span class="course-tag">反直观现象</span>
+              </div>
+            <ul class="exp-points" style="margin-top: 10px;" >
+              <li><strong>问卷采集：</strong> 深度访谈18名用户，采用扎根理论编码提炼18个初始范畴以及7个主范畴，构建信息采纳模型；在两轮调查中共收回1073份问卷。</li>
+              <li><strong>数据分析：</strong>运用SPSS、AMOS构建结构方程模型，验证了6条影响路径。</li>
+              <li><strong>成果提炼： </strong>发现社会影响对信息采纳负相关的反直观现象，精准回应Z世代对质量与来源可信度的诉求。</li>
+            </ul>
+            <div class="exp-attachment">
+              <div class="exp-attachment-label">📎 附件上传</div>
+              <div class="exp-attachment-btns">
+                <label class="upload-btn" id="upload-guochuang">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M17 8l-5-5-5 5M12 3v12"/>
+                  </svg>
+                  上传作品
+                  <input type="file" accept=".pdf,.ppt,.pptx,.doc,.docx,.jpg,.jpeg,.png,.mp4,.mov" onchange="handleFileUpload(this, 'guochuang')" />
+                </label>
+              </div>
+              <div id="file-list-guochuang" style="margin-top:8px;"></div>
+            </div>
+          </div>
+
+          <!-- 正大杯 -->
+          <div class="exp-card">
+            <div class="exp-header">
+              <div>
+                <div class="exp-title">
+                  “非遗实景剧本杀”消费现状与市场前景分析
+                  <span class="exp-badge badge-orange">全国三等奖</span>
+                </div>
+                <div class="exp-subtitle">第十三届全国大学生市场调查与分析大赛——团队负责人</div>
+              </div>
+              <div class="exp-period">2023.03 — 2023.05</div>
+            </div>
+            <div class="course-grid">
+                <span class="course-tag">配额抽样</span>
+                <span class="course-tag">列联表分析</span>
+                <span class="course-tag">主成分分析</span>
+                <span class="course-tag">聚类分析</span>
+                <span class="course-tag">SEM模型</span>
+              </div>
+            <ul class="exp-points" style="margin-top: 10px;">
+               <li><strong>问卷设计采集：</strong>统筹全国七大区域配额抽样，设计57题问卷，两轮调查共收回648份问卷。</li>
+              <li><strong>多模型实证分析：</strong>主导列联表分析，发现年龄、职业与参与情况显著相关（P<0.05）；运用主成分分析提取感知质量、感知价值等因子；构建TPB与TAM结构方程模型，验证购买态度、感知易用性对消费意向的正向影响。</li>
+              <li><strong>成果提炼与输出：</strong>基于聚类分析、再传播意愿ELM模型等结论，提出“剧本质量为核心、实景助沉浸”、“社交媒体真实探店”、“组团套餐定价”三条可操作建议，助力非遗剧本杀市场开拓。</li>
+            </ul>
+            <div class="exp-attachment">
+              <div class="exp-attachment-label">📎 附件上传</div>
+              <div class="exp-attachment-btns">
+                <label class="upload-btn" id="upload-jisuanji">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M17 8l-5-5-5 5M12 3v12"/>
+                  </svg>
+                  上传作品
+                  <input type="file" accept=".pdf,.ppt,.pptx,.doc,.docx,.jpg,.jpeg,.png,.mp4,.mov" onchange="handleFileUpload(this, 'jisuanji')" />
+                </label>
+              </div>
+              <div id="file-list-jisuanji" style="margin-top:8px;"></div>
+            </div>
+          </div>
+
+         <!-- 三创赛 -->
+          <div class="exp-card">
+            <div class="exp-header">
+              <div>
+                <div class="exp-title">
+                  云养一颗柿，链动一个村——来太沟乡村振兴电商计划
+                  <span class="exp-badge badge-orange">全国三等奖</span>
+                </div>
+                <div class="exp-subtitle">第十三届电子商务“创新、创意及创业”挑战赛——核心成员</div>
+              </div>
+              <div class="exp-period">2023.03 — 2023.05</div>
+            </div>
+            <div class="course-grid">
+                <span class="course-tag">营销策略</span>
+                <span class="course-tag">直播带货</span>
+              </div>
+            <ul class="exp-points" style="margin-top: 10px;">
+               <li><strong>营销策略：</strong>主导销售方案撰写，提出社群接龙、云养成等6种模式。</li>
+              <li><strong>直播宣传：</strong>与团队共赴承德银窝沟乡来太沟村实地考察，完成1场西红柿专场直播</li>
+              <li><strong>直播讲解：</strong>辅导当地种植户掌握直播操作与话术，使其后续可独立开播。</li>
+            </ul>
+            <div class="exp-attachment">
+              <div class="exp-attachment-label">📎 附件上传</div>
+              <div class="exp-attachment-btns">
+                <label class="upload-btn" id="upload-jisuanji">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M17 8l-5-5-5 5M12 3v12"/>
+                  </svg>
+                  上传作品
+                  <input type="file" accept=".pdf,.ppt,.pptx,.doc,.docx,.jpg,.jpeg,.png,.mp4,.mov" onchange="handleFileUpload(this, 'jisuanji')" />
+                </label>
+              </div>
+              <div id="file-list-jisuanji" style="margin-top:8px;"></div>
+            </div>
+          </div>
+
+         <!-- 生命科学竞赛 -->
+          <div class="exp-card">
+            <div class="exp-header">
+              <div>
+                <div class="exp-title">
+                  质能回环--基于柱塞循环冲压的生物质能收集器
+                  <span class="exp-badge badge-orange">全国三等奖</span>
+                </div>
+                <div class="exp-subtitle">第八届全国大学生生命科学竞赛（创新创业类）——核心成员</div>
+              </div>
+              <div class="exp-period">2023.05 — 2023.06</div>
+            </div>
+            <ul class="exp-points" style="margin-top: 10px;">
+               <li><strong>答辩视频制作：</strong>运用剪映制作汇报视频，独立完成人像抠图、多轨道视频剪辑。</li>
+            </ul>
+            <div class="exp-attachment">
+              <div class="exp-attachment-label">📎 附件上传</div>
+              <div class="exp-attachment-btns">
+                <label class="upload-btn" id="upload-jisuanji">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M17 8l-5-5-5 5M12 3v12"/>
+                  </svg>
+                  上传作品
+                  <input type="file" accept=".pdf,.ppt,.pptx,.doc,.docx,.jpg,.jpeg,.png,.mp4,.mov" onchange="handleFileUpload(this, 'jisuanji')" />
+                </label>
+              </div>
+              <div id="file-list-jisuanji" style="margin-top:8px;"></div>
+            </div>
+          </div>
+
+         <!-- 国创项目 -->
+          <div class="exp-card">
+            <div class="exp-header">
+              <div>
+                <div class="exp-title">
+                  基于文本挖掘技术的移动学习平台持续使用行为影响因素研究
+                  <span class="exp-badge badge-gold">国家级创新训练项目</span>
+                </div>
+                <div class="exp-subtitle">核心成员</div>
+              </div>
+              <div class="exp-period">2021.05 — 2022.05</div>
+            </div>
+            <div class="course-grid">
+                <span class="course-tag">文本挖掘</span>
+                <span class="course-tag">学习通评论分析</span>
+              </div>
+            <ul class="exp-points" style="margin-top: 10px;" >
+              <li><strong>数据采集：</strong>爬取学习通平台1万条评论，经分词、词云可视化，提取TF-IDF前500高频词。
+              <li><strong>模型构建：</strong>基于CCSI与Fornell模型，通过Copy+K-means聚类为6类因素，构建用户忠诚度模型。</li>
+              <li><strong>实证分析：</strong>回收有效问卷175份（信度>0.7，KMO>0.8），验证8个假设，路径系数均显著。</li>
+              <li><strong>成果建议：</strong>提出优化硬件性能、树立品牌形象、完善反馈机制等建议，为提升移动学习平台用户忠诚度提供数据支撑。</li>
+            </ul>
+            <div class="exp-attachment">
+              <div class="exp-attachment-label">📎 附件上传</div>
+              <div class="exp-attachment-btns">
+                <label class="upload-btn" id="upload-guochuang">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M17 8l-5-5-5 5M12 3v12"/>
+                  </svg>
+                  上传作品
+                  <input type="file" accept=".pdf,.ppt,.pptx,.doc,.docx,.jpg,.jpeg,.png,.mp4,.mov" onchange="handleFileUpload(this, 'guochuang')" />
+                </label>
+              </div>
+              <div id="file-list-guochuang" style="margin-top:8px;"></div>
+            </div>
+          </div>
+
+    </section>
+
+    <!-- ==================== 实习/实践经历 ==================== -->
+    <section id="practice" class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>实习与实践经历</h2>
+          <div class="divider"></div>
+          <p class="subtitle">PRACTICE · 从校园到职场，在实战中成长</p>
+        </div>
+
+	 <!-- 实习 -->
+        <div class="exp-list">
+          <!-- 数据分析实习 -->
+          <div class="exp-card">
+            <div class="exp-header">
+              <div>
+                <div class="exp-title">广东泰迪智能科技股份有限公司</div>
+                <div class="exp-subtitle">数据分析实习生</div>
+              </div>
+              <div class="exp-period">2023.08 — 2023.12</div>
+            </div>
+            <ul class="exp-points">
+              <li><strong>搭建数据看板：</strong>清洗73,590行、36列数据，用Excel制作6大行业盈利可视化看板，监控回款金额、经营利润等核心指标，提炼5条运营建议。</li>
+              <li><strong>用户行为分群：</strong>基于校园卡消费记录，通过 K-Means 聚类将学生分为四类，分析食堂就餐时段与地点差异，为食堂运营提出分时段备餐、优化菜品等建议。</li>
+            </ul>
+            <div class="exp-attachment">
+              <div class="exp-attachment-label">📎 附件上传</div>
+              <div class="exp-attachment-btns">
+                <label class="upload-btn" id="upload-taidi">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M17 8l-5-5-5 5M12 3v12"/>
+                  </svg>
+                  上传作品
+                  <input type="file" accept=".pdf,.ppt,.pptx,.doc,.docx,.jpg,.jpeg,.png,.mp4,.mov" onchange="handleFileUpload(this, 'taidi')" />
+                </label>
+              </div>
+              <div id="file-list-taidi" style="margin-top:8px;"></div>
+            </div>
+          </div>
+        </div>
+
+	 <!-- 课程设计 -->
+        <div class="exp-list">
+          <!-- 课程设计 -->
+          <div class="exp-card">
+            <div class="exp-header">
+              <div>
+                <div class="exp-title">广东泰迪智能科技股份有限公司</div>
+                <div class="exp-subtitle">课程设计全系最高分</div>
+              </div>
+              <div class="exp-period">2023.09 — 2023.10</div>
+            </div>
+            <ul class="exp-points">
+              <li><strong>正交表高效设计：</strong>针对4项因素、3个水平，设计L9(34)正交表并用9次试验完成全因子分析。</li>
+              <li><strong>多指标综合平衡：</strong>通过综合平衡法协调冲突指标，确定最佳方案，并绘制6组交互作用轮廓图，验证无交互作用。</li>
+              <li><strong>极差量化主因：</strong>分别对产量、还原糖进行极差排序，确定主次因素，量化贡献差异。</li>
+            </ul>
+            <div class="exp-attachment">
+              <div class="exp-attachment-label">📎 附件上传</div>
+              <div class="exp-attachment-btns">
+                <label class="upload-btn" id="upload-taidi">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M17 8l-5-5-5 5M12 3v12"/>
+                  </svg>
+                  上传作品
+                  <input type="file" accept=".pdf,.ppt,.pptx,.doc,.docx,.jpg,.jpeg,.png,.mp4,.mov" onchange="handleFileUpload(this, 'taidi')" />
+                </label>
+              </div>
+              <div id="file-list-taidi" style="margin-top:8px;"></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ==================== 技能特长 ==================== -->
+    <section id="skills" class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>技能<em>特长</em></h2>
+          <div class="divider"></div>
+          <p class="subtitle">SKILLS · 硬技能与软实力并重</p>
+        </div>
+
+        <div class="skills-grid">
+          <div class="skill-group">
+            <div class="skill-group-title">
+              <span class="dot"></span>编程与数据分析
+            </div>
+            <div class="skill-tags">
+              <span class="skill-tag highlight">Python</span>
+              <span class="skill-tag highlight">SQL</span>
+              <span class="skill-tag highlight">MATLAB</span>
+              <span class="skill-tag">SPSS</span>
+              <span class="skill-tag">SAS</span>
+              <span class="skill-tag">AMOS</span>
+              <span class="skill-tag">Origin</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <div class="skill-group-title">
+              <span class="dot" style="background: var(--accent-warm)"></span>统计与建模
+            </div>
+            <div class="skill-tags">
+              <span class="skill-tag highlight">结构方程模型 SEM</span>
+              <span class="skill-tag highlight">强化学习RL</span>
+              <span class="skill-tag highlight">神经网络</span>
+              <span class="skill-tag">XGBoost</span>
+              <span class="skill-tag">K-Means 聚类</span>
+              <span class="skill-tag">回归分析</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <div class="skill-group-title">
+              <span class="dot" style="background: #7bb88c"></span>产品与调研
+            </div>
+            <div class="skill-tags">
+              <span class="skill-tag highlight">问卷设计</span>
+              <span class="skill-tag highlight">用户研究</span>
+              <span class="skill-tag">PRD 撰写</span>
+              <span class="skill-tag">竞品分析</span>
+              <span class="skill-tag">扎根理论</span>
+              <span class="skill-tag">数据看板</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <div class="skill-group-title">
+              <span class="dot" style="background: #a07bb8"></span>办公与设计
+            </div>
+            <div class="skill-tags">
+              <span class="skill-tag">Office 全家桶</span>
+              <span class="skill-tag">Excel 数据看板</span>
+              <span class="skill-tag">PPT 视觉设计</span>
+              <span class="skill-tag">Procreate</span>
+              <span class="skill-tag">视频剪辑</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="other-skills card" style="margin-top: 20px;">
+          <div class="skill-group-title" style="margin-bottom: 12px;">
+            <span class="dot" style="background: var(--accent-warm)"></span>AI能力
+          </div>
+          <div class="talent-list">
+            <div class="talent-item"><span class="emoji">🤖</span> Vibe Coding</div>
+            <div class="talent-item"><span class="emoji">⌨</span> Visual Studio Code</div>
+            <div class="talent-item"><span class="emoji">💻</span> 云服务器 ECS</div>
+            <div class="talent-item"><span class="emoji">🎨</span> Pixso网页设计</div>
+          </div>
+        </div>
+
+        <div class="other-skills card" style="margin-top: 20px;">
+          <div class="skill-group-title" style="margin-bottom: 12px;">
+            <span class="dot" style="background: var(--accent-warm)"></span>文艺与其他特长
+          </div>
+          <div class="talent-list">
+            <div class="talent-item"><span class="emoji">💃</span> 中国舞十二级</div>
+            <div class="talent-item"><span class="emoji">🎙️</span> 播音主持</div>
+            <div class="talent-item"><span class="emoji">📹</span> 动漫制作（Procreate 逐帧）</div>
+            <div class="talent-item"><span class="emoji">🎬</span> 视频剪辑</div>
+            <div class="talent-item"><span class="emoji">🎨</span> 水粉与水彩</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== 荣誉证书 ==================== -->
+    <section id="honors" class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>荣誉证书</h2>
+          <div class="divider"></div>
+          <p class="subtitle">HONORS · 竞赛 & 奖学金 & 荣誉称号</p>
+        </div>
+
+        <div style="margin-bottom: 32px;">
+          <div style="font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 14px;">持有证书</div>
+          <div class="cert-list">
+            <div class="cert-pill">🌍 CET-6 英语六级</div>
+            <div class="cert-pill">📊 CBDA 大数据分析工程师技能证书</div>
+            <div class="cert-pill">🔍 全国市场调查与分析专业技能证书</div>
+            <div class="cert-pill">📚 高中教师资格证</div>
+          </div>
+        </div>
+
+        <div class="honor-grid">
+          <div class="honor-card">
+            <div class="honor-icon">🏅</div>
+            <div class="honor-title">奖学金</div>
+             <ul class="exp-points">
+              <li><strong>本科：</strong>连续 8 学期荣获校级奖学金</li>
+              <li><strong>硕士：</strong>获评一等奖学金</li>
+            </ul>
+            <span class="honor-level" style="background:#fff8e6; color:#c4820a;">连续获奖</span>
+          </div>
+          <div class="honor-card">
+            <div class="honor-icon">🌟</div>
+            <div class="honor-title">省 / 市级荣誉</div>
+             <ul class="exp-points">
+              <li><strong>个人：</strong>优秀毕业生、优秀学生干部</li>
+              <li><strong>集体：</strong>带领班级获评省级优秀班集体、市级优秀团支部</li>
+            </ul>
+            <span class="honor-level" style="background:var(--accent-light); color:var(--accent);">省 / 市级</span>
+          </div>
+          <div class="honor-card">
+            <div class="honor-icon">🎖️</div>
+            <div class="honor-title">校级荣誉</div>
+             <ul class="exp-points">
+              <li>优秀学生干部(3次)、优秀共青团干部(4次)</li>
+              <li>校园十佳团支书(全校仅10名)、三好学生</li>
+            </ul>
+            <span class="honor-level" style="background:#f0f8f0; color:#5a9a6a;">校级</span>
+          </div>
+          <div class="honor-card">
+            <div class="honor-icon">🏆</div>
+            <div class="honor-title">A类学科竞赛</div>
+             <ul class="exp-points">
+              <li>国家级奖项<strong>6项</strong>，包含市调、计算机设计、统计建模等</li>
+              <li>省级奖项<strong>2项</strong>，包含数学建模、创新创业等</li>
+            </ul>
+            <span class="honor-level" style="background:#fff8e6; color:#c4820a;">国家级 × 6</span>
+          </div>
+          <div class="honor-card" style="grid-column: 1 / -1;">
+            <div class="honor-icon">🎭</div>
+            <div class="honor-title">文体竞赛</div>
+             <ul class="exp-points">
+              <li><strong>省级：</strong>省级大艺术展一等奖、省网络文化节三等奖</li>
+              <li><strong>校级：</strong>校园主持人大赛"十强"选手、演讲比赛获奖3次、公开课2次等</li>
+              <li><strong>院级：</strong>演讲比赛一等奖</li>
+            </ul>
+            <span class="honor-level" style="background:var(--accent-light); color:var(--accent);">省级一等奖</span>
+          </div>
+        </div>
+      </div>
+    </section>
+   <!-- ==================== 作品集 ==================== -->
+    <section id="portfolio" class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>我的<em>作品集</em></h2>
+          <div class="divider"></div>
+          <p class="subtitle">PORTFOLIO · 每一份作品都是能力的证明</p>
+        </div>
+
+        <div class="portfolio-grid">
+
+          <!-- 正大杯 -->
+          <div class="portfolio-card">
+            <div class="portfolio-header">
+              <div class="portfolio-title">学苑造物——北京市高校文创产品发展现状与消费行为解码</div>
+              <span class="portfolio-type type-pdf">📄 PDF</span>
+            </div>
+            <p class="portfolio-desc">
+              涵盖微博评论爬虫、6 校实地走访、9 校网店数据挖掘、1004 份问卷分析、TwoStep 聚类用户画像、XGBoost 购买导向划分、SEM 消费意愿模型、模拟 PRD 输出与四维产品策略建议，荣获“正大杯”全国一等奖。
+            </p>
+            <div class="portfolio-actions">
+              <a href="https://365.kdocs.cn/l/cfllVIpURdGG" target="_blank" class="action-btn action-btn-pdf">
+                📄 查看PDF 报告
+              </a>
+              <a href="https://365.kdocs.cn/l/cerJnZEJzsf2" target="_blank" class="action-btn action-btn-ppt">
+                📊 查看PPT 展示
+              </a>
+            </div>
+          </div>
+
+          <!-- 计算机设计大赛 -->
+          <div class="portfolio-card">
+            <div class="portfolio-header">
+              <div class="portfolio-title">探典·寻目——中医药文化</div>
+              <span class="portfolio-type type-video">🎬 动画</span>
+            </div>
+            <p class="portfolio-desc">
+              运用 Procreate 逐帧动画技术独立完成数字媒体短片创作，涵盖创意策划、分镜设计、逐帧绘制、后期剪辑与音效合成全流程，荣获“中国大学生计算机设计大赛”全国二等奖。
+            </p>
+            <div class="portfolio-actions">
+              <a href="https://www.bilibili.com/video/BV1J4QiBwE8b/?spm_id_from=333.1387.homepage.video_card.click" target="_blank" class="action-btn action-btn-video">
+                🎬 在 B 站观看完整视频
+              </a>
+            </div>
+          </div>
+
+          <!-- 统计建模大赛 -->
+          <div class="portfolio-card">
+            <div class="portfolio-header">
+              <div class="portfolio-title">全国大学生统计建模大赛</div>
+              <span class="portfolio-type type-pdf">📄 PDF</span>
+            </div>
+            <p class="portfolio-desc">
+              整合 32 年经济发展与人口等 15+ 指标，对比 LSTM、ResNet、CNN 等 6 种神经网络，设计改进 1DCNN 架构，预测精度提升 40% 以上，RMSE 降至 55.29，荣获全国三等奖。
+            </p>
+            <div class="portfolio-actions">
+              <a href="https://365.kdocs.cn/l/creGtmLzKTNj" target="_blank" class="action-btn action-btn-pdf">
+                📄 查看 PDF 报告
+              </a>
+              <a href="https://365.kdocs.cn/l/cvDPBFSWiyIv" target="_blank" class="action-btn action-btn-ppt">
+                📊 查看PPT 展示
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- 证书链接专区 -->
+        <div style="margin-top: 36px;">
+          <div style="font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 16px;">📋 证书链接</div>
+          <div class="cert-links-grid">
+            <a href="https://365.kdocs.cn/l/cvD6ffwFUelT" target="_blank" class="cert-link-card">
+              <div class="cert-link-icon">🏅</div>
+              <div class="cert-link-text"><strong>荣誉证书</strong>各类荣誉奖状汇总</div>
+            </a>
+            <a href="https://365.kdocs.cn/l/caVi8myKemmg" target="_blank" class="cert-link-card">
+              <div class="cert-link-icon">🏆</div>
+              <div class="cert-link-text"><strong>竞赛证书</strong>A 类学科竞赛获奖证书</div>
+            </a>
+            <a href="https://365.kdocs.cn/l/cfDj68mrvTSW" target="_blank" class="cert-link-card">
+              <div class="cert-link-icon">💰</div>
+              <div class="cert-link-text"><strong>奖学金证书</strong>本科及研究生奖学金</div>
+            </a>
+            <a href="https://365.kdocs.cn/l/coBHPqJ0rkQc" target="_blank" class="cert-link-card">
+              <div class="cert-link-icon">🎭</div>
+              <div class="cert-link-text"><strong>文体竞赛证书</strong>艺术展演及文体活动证书</div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+  </main>
+
+  <footer>
+    © 2026 刘郁婷 · 用数据驱动洞察，以热情拥抱 AI时代
+  </footer>
+
+  <script>
+    /* ===================================================
+       导航切换逻辑（SPA 形式，无页面跳转）
+    =================================================== */
+    const navLinks   = document.querySelectorAll('[data-target]');
+    const sections   = document.querySelectorAll('.section');
+    const hamburger  = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    /**
+     * switchSection - 切换显示对应内容区块
+     * @param {string} targetId - 目标 section 的 id
+     */
+    function switchSection(targetId) {
+      // 隐藏所有区块，移除 active 类
+      sections.forEach(sec => sec.classList.remove('active'));
+      // 取消所有导航链接的 active 状态
+      navLinks.forEach(link => link.classList.remove('active'));
+      // 激活目标区块
+      const target = document.getElementById(targetId);
+      if (target) target.classList.add('active');
+      // 激活对应导航链接（PC 端和移动端同步）
+      document.querySelectorAll(`[data-target="${targetId}"]`)
+        .forEach(link => link.classList.add('active'));
+      // 移动端：切换后收起菜单
+      mobileMenu.classList.remove('show');
+      hamburger.classList.remove('open');
+    }
+
+    // 为所有带 data-target 的链接绑定点击事件
+    navLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const target = link.getAttribute('data-target');
+        switchSection(target);
+      });
+    });
+
+    /* ===================================================
+       移动端汉堡菜单
+    =================================================== */
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      mobileMenu.classList.toggle('show');
+    });
+
+    /* ===================================================
+       头像优先级探测函数
+       优先级顺序（按用户上传的真实文件名）：
+         1. 证件照1.jpeg  ← 用户上传的照片
+         2. avatar.png
+         3. avatar.jpg
+         4. avatar.jpeg
+       若全部失败则保留优雅占位样式，布局不塌陷
+    =================================================== */
+    function detectAvatar() {
+      // 用户真实文件名优先，然后是通用格式兜底
+      const formats = ['证件照1.jpeg', 'avatar.png', 'avatar.jpg', 'avatar.jpeg'];
+      const container   = document.getElementById('avatarContainer');
+      const placeholder = document.getElementById('avatarPlaceholder');
+
+      let idx = 0;
+
+      function tryNext() {
+        if (idx >= formats.length) return; // 全部失败，保持占位
+
+        const src    = formats[idx];
+        const img    = new Image();
+        img.src      = src;
+
+        img.onload = function () {
+          // 加载成功：隐藏占位，插入真实头像
+          placeholder.style.display = 'none';
+          container.appendChild(img);
+        };
+
+        img.onerror = function () {
+          // 尝试下一个格式
+          idx++;
+          tryNext();
+        };
+      }
+
+      tryNext();
+    }
+
+    // 页面加载完成后执行头像探测
+    detectAvatar();
+
+    /* ===================================================
+       项目内嵌附件上传功能
+       支持 PDF、PPT、Word、图片、视频等格式
+       使用 Blob URL 实现本地预览/下载
+    =================================================== */
+    // 存储每个项目的文件 Blob URL（用于清理）
+    const projectFileBlobs = {};
+
+    /**
+     * handleFileUpload - 处理文件上传
+     * @param {HTMLInputElement} inputEl - 文件 input 元素
+     * @param {string} projectId       - 项目唯一标识（与 DOM id 对应）
+     */
+    function handleFileUpload(inputEl, projectId) {
+      const files    = inputEl.files;
+      const listEl   = document.getElementById(`file-list-${projectId}`);
+      if (!files.length) return;
+
+      // 清理该项目的旧 Blob URL（防止内存泄漏）
+      if (projectFileBlobs[projectId]) {
+        projectFileBlobs[projectId].forEach(url => URL.revokeObjectURL(url));
+        projectFileBlobs[projectId] = [];
+      } else {
+        projectFileBlobs[projectId] = [];
+      }
+
+      // 遍历所有选中文件
+      Array.from(files).forEach(file => {
+        const blobUrl    = URL.createObjectURL(file);
+        projectFileBlobs[projectId].push(blobUrl);
+
+        const fileExt    = file.name.split('.').pop().toLowerCase();
+        const isImage    = ['jpg','jpeg','png','gif','webp'].includes(fileExt);
+        const isVideo    = ['mp4','mov','avi','webm'].includes(fileExt);
+        const isPdf      = fileExt === 'pdf';
+        const isPpt      = ['ppt','pptx'].includes(fileExt);
+        const isWord     = ['doc','docx'].includes(fileExt);
+
+        // 根据类型选择图标和颜色
+        let icon = '📎', btnClass = 'action-btn-secondary';
+        if (isImage) { icon = '🖼️'; btnClass = 'action-btn-link'; }
+        if (isVideo) { icon = '🎬'; btnClass = 'action-btn-video'; }
+        if (isPdf)   { icon = '📄'; btnClass = 'action-btn-pdf'; }
+        if (isPpt)   { icon = '📊'; btnClass = 'action-btn-ppt'; }
+        if (isWord)  { icon = '📝'; btnClass = 'action-btn-secondary'; }
+
+        // 截断超长文件名
+        const displayName = file.name.length > 28
+          ? file.name.substring(0, 25) + '...'
+          : file.name;
+
+        // 创建文件展示行：点击可预览（图片/视频）或下载（其他）
+        const linkTarget = (isImage || isVideo) ? '_blank' : '_self';
+        const fileEl = document.createElement('a');
+        fileEl.href          = blobUrl;
+        fileEl.target        = linkTarget;
+        fileEl.download      = file.name;
+        fileEl.className     = 'uploaded-file';
+        fileEl.style.marginRight = '6px';
+        fileEl.style.marginBottom = '6px';
+        fileEl.innerHTML     = `<span class="file-name">${icon} ${displayName}</span><span class="remove-file" title="移除" onclick="removeFile(this, '${projectId}', '${blobUrl}')">✕</span>`;
+
+        listEl.appendChild(fileEl);
+      });
+
+      // 清空 input，允许重复上传同一文件
+      inputEl.value = '';
+    }
+
+    /**
+     * removeFile - 移除已上传的文件（仅从页面移除，Blob URL 释放由页面卸载时统一处理）
+     * @param {HTMLElement} removeBtn - 点击的移除按钮
+     * @param {string} projectId     - 项目标识
+     * @param {string} blobUrl       - 该文件的 Blob URL
+     */
+    function removeFile(removeBtn, projectId, blobUrl) {
+      // 从 DOM 移除文件行
+      const fileEl = removeBtn.closest('.uploaded-file');
+      if (fileEl) fileEl.remove();
+      // 释放 Blob URL
+      const idx = projectFileBlobs[projectId]?.indexOf(blobUrl);
+      if (idx !== undefined && idx > -1) {
+        URL.revokeObjectURL(blobUrl);
+        projectFileBlobs[projectId].splice(idx, 1);
+      }
+    }
+
+    // 页面卸载时统一释放所有 Blob URL
+    window.addEventListener('beforeunload', () => {
+      Object.values(projectFileBlobs).forEach(urls => urls.forEach(url => URL.revokeObjectURL(url)));
+    });
+  </script>
+
+</body>
+</html>
