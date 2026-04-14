@@ -1086,16 +1086,20 @@
           </div>
 
 	
-	<!-- 头像区 -->
-	<div class="avatar-wrap">
- 	 <div class="avatar-container">
-
-	    <img src="images/photo.jpg"
-    	     alt="刘郁婷"
-    	     class="avatar-img">
-
- 	 </div>
-	</div>
+          <!-- 头像区 -->
+          <div class="avatar-wrap">
+            <div class="avatar-container" id="avatarContainer">
+              <!-- JS 会尝试加载头像，失败则显示优雅占位 -->
+              <div class="avatar-placeholder" id="avatarPlaceholder">
+                <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="24" cy="18" r="9" stroke="#4a90a4" stroke-width="2.5" fill="none"/>
+                  <path d="M6 42c0-9.941 8.059-18 18-18s18 8.059 18 18" stroke="#4a90a4" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+                </svg>
+                <span>Photo</span>
+              </div>
+            </div>
+          </div>
+        </div>
 
         <!-- 个人信息卡片 -->
         <div class="info-row">
